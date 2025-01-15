@@ -1,1 +1,14 @@
 /*  your css code here. If applicable */
+<style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+  </style>
