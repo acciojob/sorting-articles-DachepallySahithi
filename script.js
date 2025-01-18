@@ -14,6 +14,7 @@ const bands = [
   'An Old Dog'
 ];
 
+
 const sortedBands = bands.sort((a, b) => {
   const aWithoutArticles = removeArticles(a);
   const bWithoutArticles = removeArticles(b);
