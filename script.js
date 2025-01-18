@@ -14,6 +14,15 @@ const bands = [
   'An Old Dog'
 ];
 
+function removeArticles(str) {
+  const articles = ['a', 'an', 'the'];
+  for (const article of articles) {
+    if (str.toLowerCase().startsWith(article + ' ')) {
+      str = str.substring(article.length + 1);
+    }
+  }
+  return str;
+}
 
 const sortedBands = bands.sort((a, b) => {
   const aWithoutArticles = removeArticles(a);
@@ -21,10 +30,9 @@ const sortedBands = bands.sort((a, b) => {
   return aWithoutArticles.localeCompare(bWithoutArticles);
 });
 
-const bandList = document.getElementById('band'); 
-
-if (!bandList) {
-  bandList = document.createElement('ul');
-  bandList.id = 'band'; 
-  document.body.appendChild(bandList); 
-}
+const bandList = document.getElementById('band');
+sortedBands.forEach(band => {
+  const listItem = document.createElement('li');
+  listItem.textContent = band;
+  bandList.appendChild(listItem);
+});
