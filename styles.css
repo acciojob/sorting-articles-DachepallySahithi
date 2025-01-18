@@ -1,13 +1,12 @@
 body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
+  font-family: sans-serif;
+}
 
-        #bands {
-            list-style: none;
-            padding: 0;
-        }
+#band {
+  list-style-type: none;
+  padding: 0;
+}
 
-        #bands li {
-            margin-bottom: 5px;
-        }
+#band li {
+  margin-bottom: 5px;
+}
