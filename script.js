@@ -19,7 +19,6 @@ function sortBands(bands) {
     const ignoreWords = ['a', 'an', 'the'];
 
     return bands.sort((a, b) => {
-        // Function to extract the key for sorting, ignoring 'a', 'an', 'the'
         const getSortKey = (bandName) => {
             const nameParts = bandName.split(' ');
             const firstWord = nameParts[0].toLowerCase();
@@ -37,7 +36,7 @@ function sortBands(bands) {
 const sortedBands = sortBands(bands);
 
 // Populate the unordered list with the sorted band names
-const bandList = document.getElementById('band');
+const bandList = document.getElementById('bands');
 sortedBands.forEach(band => {
     const li = document.createElement('li');
     li.textContent = band;
