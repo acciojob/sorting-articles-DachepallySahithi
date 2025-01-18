@@ -1,38 +1,45 @@
 const bands = [
-  'The Plot in You',
-  'The Devil Wears Prada',
-  'Pierce the Veil',
-  'Norma Jean',
-  'The Bled',
-  'Say Anything',
-  'The Midway State',
-  'We Came as Romans',
-  'Counterparts',
-  'Oh, Sleeper',
-  'A Skylit Drive',
-  'Anywhere But Here',
-  'An Old Dog'
+    'The Plot in You',
+    'The Devil Wears Prada',
+    'Pierce the Veil',
+    'Norma Jean',
+    'The Bled',
+    'Say Anything',
+    'The Midway State',
+    'We Came as Romans',
+    'Counterparts',
+    'Oh, Sleeper',
+    'A Skylit Drive',
+    'Anywhere But Here',
+    'An Old Dog'
 ];
 
-function removeArticles(str) {
-  const articles = ['a', 'an', 'the'];
-  for (const article of articles) {
-    if (str.toLowerCase().startsWith(article + ' ')) {
-      str = str.substring(article.length + 1);
-    }
-  }
-  return str;
+// Function to sort the bands array ignoring 'a', 'an', and 'the'
+function sortBands(bands) {
+    const ignoreWords = ['a', 'an', 'the'];
+
+    return bands.sort((a, b) => {
+        // Function to extract the key for sorting, ignoring 'a', 'an', 'the'
+        const getSortKey = (bandName) => {
+            const nameParts = bandName.split(' ');
+            const firstWord = nameParts[0].toLowerCase();
+            if (ignoreWords.includes(firstWord)) {
+                return nameParts.slice(1).join(' ').toLowerCase(); // Ignore first word and sort the rest
+            }
+            return bandName.toLowerCase();
+        };
+
+        return getSortKey(a).localeCompare(getSortKey(b));
+    });
 }
 
-const sortedBands = bands.sort((a, b) => {
-  const aWithoutArticles = removeArticles(a);
-  const bWithoutArticles = removeArticles(b);
-  return aWithoutArticles.localeCompare(bWithoutArticles);
-});
+// Sort the band names
+const sortedBands = sortBands(bands);
 
+// Populate the unordered list with the sorted band names
 const bandList = document.getElementById('band');
 sortedBands.forEach(band => {
-  const listItem = document.createElement('li');
-  listItem.textContent = band;
-  bandList.appendChild(listItem);
+    const li = document.createElement('li');
+    li.textContent = band;
+    bandList.appendChild(li);
 });
