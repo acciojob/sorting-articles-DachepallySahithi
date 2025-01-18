@@ -14,7 +14,6 @@ const bands = [
     'An Old Dog'
 ];
 
-// Function to sort the bands array ignoring 'a', 'an', and 'the'
 function sortBands(bands) {
     const ignoreWords = ['a', 'an', 'the'];
 
@@ -35,10 +34,9 @@ function sortBands(bands) {
 // Sort the band names
 const sortedBands = sortBands(bands);
 
-// Populate the unordered list with the sorted band names
 const bandList = document.getElementById('bands');
 sortedBands.forEach(band => {
     const li = document.createElement('li');
-    li.textContent = band;
+    li.textContent = bands;
     bandList.appendChild(li);
 });
